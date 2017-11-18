@@ -5,6 +5,8 @@ This repository contains the essential configuration files from my machine.
 
 ## Key Files
 [.always_forget.txt](.always_forget.txt) is a file prepared by [Professor DeOrio](https://github.com/awdeorio) and is a cheat sheet with several commonly used UNIX commands.
+
+
 [.vimrc](.vimrc) contains my current Vim configuration (uses Vundle as a package manager)
 
 ## Installation
