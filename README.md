@@ -14,5 +14,5 @@ rsync -av dotfiles/ ~/
 rm -rf dotfiles/
 ```
 
-# NOTE:
+#### NOTE:
 I currently use zsh, so the bash files in this repository are not updated and are very bare
