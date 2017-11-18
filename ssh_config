@@ -1,0 +1,17 @@
+# UMich GitLab
+Host gitlab
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+
+# CAEN
+Host caen
+    HostName login.engin.umich.edu
+    User tarunsk
+    Compression yes
+
+# GitHub
+Host github
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
