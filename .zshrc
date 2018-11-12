@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/Tarun/.oh-my-zsh
+#alias python3='python3.6'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,11 +52,24 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt)
+plugins=(
+    git
+    git-prompt
+    osx
+    history-substring-search
+    z
+)
 
 source $ZSH/oh-my-zsh.sh
 
+# Setting up history-substring-search
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
 # User configuration
+setopt auto_cd
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -83,10 +97,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+cdpath=($HOME/ /Volumes/Documents/University\ of\ Michigan/Sophomore/EECS281/Projects /Volumes/Documents/Buddyz /Volumes/Documents/University\ of\ Michigan/Sophomore/IA398)
+alias python='python3.7'
+alias debug='docker run -it --rm --privileged -v "$(pwd):/prog" docker-debugger:latest'
+
+chrome() {
+    open -a "Google Chrome" "$1"
+}
 
 # Setting PATH for Python 3.4
 # The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+# PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+PATH="/usr/local/bin/:$PATH"
 export PATH
 
 # Setting PATH for Python 2.7
@@ -108,3 +130,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export REDIS_URL=redis://127.0.0.1:6379
+
+# added by travis gem
+[ -f /Users/Tarun/.travis/travis.sh ] && source /Users/Tarun/.travis/travis.sh

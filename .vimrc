@@ -1,4 +1,4 @@
-" Gotta be first
+" Initial Config
 set nocompatible
 filetype off
 
@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
 
@@ -15,10 +14,9 @@ call vundle#end()
 filetype plugin indent on
 
 
-" --- Solarized Theme ---
+" --- Theme ---
 syntax enable
 set background=dark   
-colorscheme solarized
 
 " --- Useful IDE Stuff ---
 Plugin 'scrooloose/nerdtree'
@@ -30,18 +28,27 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'vincom2/tabmerge-mirror'
+
+" --- Language Support ---
+Plugin 'lervag/vimtex'
 
 " --- Git Stuff ---
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
 " --- General settings ---
+set mouse=a
+set noswapfile
 set backspace=indent,eol,start
 set ruler
 set number
 set showcmd
 set incsearch
 set hlsearch
+set splitbelow
+set splitright
+
 filetype plugin indent on
 set shiftwidth=4
 set tabstop=4
@@ -49,8 +56,8 @@ set expandtab
 set textwidth=120
 set clipboard=unnamed
 
+highlight LineNr ctermbg=236
 hi clear SignColumn
-
 syntax on
 
 " --- NERDTree Tabs ---
@@ -79,5 +86,9 @@ augroup mydelimitMate
 augroup END
 
 " --- Map Window Pane Toggle ---
-nmap ,, <c-w><c-w>
-nmap <M-Right> gt
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+nnoremap <C-w> :tabclose<CR>
+nnoremap <C-.> :tabnext<CR>

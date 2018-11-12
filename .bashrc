@@ -5,3 +5,6 @@
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/Tarun/.travis/travis.sh ] && source /Users/Tarun/.travis/travis.sh

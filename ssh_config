@@ -9,6 +9,14 @@ Host caen
     HostName login.engin.umich.edu
     User tarunsk
     Compression yes
+    ControlMaster auto
+    ControlPath ~/.ssh/_%r@%h:%p
+    ControlPersist 43200
+
+# Oncampus caen
+Host tsk
+    HostName oncampus-course.engin.umich.edu
+    User tarunsk
 
 # GitHub
 Host github
