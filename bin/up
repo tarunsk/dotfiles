@@ -1,0 +1,9 @@
+#!/bin/bash
+
+num=$1
+echo "$num"
+while [ $num -ne 0  ];do
+    cd ..
+    num=$((num-1))
+    echo "$num"
+done

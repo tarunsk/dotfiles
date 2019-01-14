@@ -1,0 +1,39 @@
+#!/usr/bin/expect
+
+set prompt "bash-4.2$ "
+
+set USER "tarunsk"
+set HOST "login.engin.umich.edu"
+
+spawn ssh $USER@$HOST                                                         
+
+set timeout 15
+
+stty -echo
+send_user -- "Password for $USER@$HOST: "
+expect_user -re "(.*)\n"
+send_user "\n"
+stty echo
+set PASS $expect_out(1,string)
+
+
+expect {
+    timeout {
+        puts "Connection timed out"
+        exit 1
+    }
+
+    "Passcode or option (1-3): " {
+        send "1\r"
+        exp_continue
+    }
+
+    "Password:" {
+        send "$PASS\r"
+        exp_continue
+    }
+
+    "$prompt" {
+        interact
+    }
+}

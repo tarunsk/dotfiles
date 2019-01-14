@@ -126,6 +126,7 @@ export ANDROID_HOME=/Users/Tarun/Library/Android/sdk
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$JAVA_HOME/bin:$PATH
+export PATH=~/dotfiles/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -133,3 +134,11 @@ export REDIS_URL=redis://127.0.0.1:6379
 
 # added by travis gem
 [ -f /Users/Tarun/.travis/travis.sh ] && source /Users/Tarun/.travis/travis.sh
+
+function up {
+  num=$1
+  while [ $num -ne 0  ];do
+    cd ..
+    num=$((num-1))
+  done
+}

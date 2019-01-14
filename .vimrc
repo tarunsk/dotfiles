@@ -90,5 +90,3 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
-nnoremap <C-w> :tabclose<CR>
-nnoremap <C-.> :tabnext<CR>

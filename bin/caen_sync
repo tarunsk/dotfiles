@@ -1,0 +1,4 @@
+#!/bin/bash
+FILE=$(pwd | sed 's/.*\///')
+
+/usr/bin/expect /Users/Tarun/dotfiles/bin/expect_caen_sync $FILE

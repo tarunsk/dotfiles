@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+set timeout -1
+set file [lindex $argv 0]
+set USER "tarunsk"
+set PROMPT "megaman% "
+
+spawn ssh tarunsk@login.itd.umich.edu
+expect "Password: "
+stty -echo
+expect_user -re "(.*)\n"
+send_user "\n"
+stty echo
+set PASS $expect_out(1,string)
+send "$PASS\r"
+expect "$PROMPT"
+send "mkdir -p /afs/umich.edu/user/t/a/tarunsk/eecs482/$file\r"
+
+spawn rsync -a . tarunsk@login.itd.umich.edu:/afs/umich.edu/user/t/a/tarunsk/eecs482/$file --delete
+expect "Password: "
+send "$PASS\r"
+expect eof
